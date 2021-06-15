@@ -13,7 +13,20 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'apple-icon',
+        sizes: '152x152',
+        href: '/apple-icon.png',
+      },
+      {
+        rel: 'icon',
+        type: 'image/png',
+        sizes: '36x36',
+        href: '/android-icon-36x36',
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
