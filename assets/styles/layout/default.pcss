@@ -309,11 +309,16 @@ main {
   position: relative;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   align-items: center;
   align-self: start;
   grid-area: header;
   justify-self: start;
+  opacity: 0;
+  transition: opacity .5s;
+
+  &.show{
+    opacity: 1;
+  }
 }
 
 .codrops-header__title {
@@ -373,6 +378,7 @@ main {
   .codrops-header {
     flex-direction: column;
     align-items: center;
+
   }
   .codrops-header__title {
     padding-bottom: 0.25em;

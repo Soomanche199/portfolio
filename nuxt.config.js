@@ -54,7 +54,7 @@ export default {
     icons: {
       // if you have bought the Pro packages
       // list the icons you want to add, not listed icons will be tree-shaked
-      solid: ['faTimes', 'faBars'],
+      solid: [],
       // include all icons. But dont do this.
       brands: [],
       regular: [],

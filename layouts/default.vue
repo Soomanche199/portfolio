@@ -33,7 +33,7 @@
       <main>
         <!-- 로고나 그 외 다른 화면에 고정되어야하는 것들. todo 디자인 고민. -->
         <div class="content content--fixed">
-          <header class="codrops-header">
+          <header class="codrops-header" :class="{ show: $route.path !== '/' }">
             <div class="codrops-links">
               <n-link
                 to="/"
@@ -46,7 +46,7 @@
               </n-link>
               <a
                 class="codrops-icon codrops-icon--drop"
-                href="https://tympanus.net/codrops/?p=33779"
+                href="/"
                 title="Back to the article"
               >
                 <svg class="icon icon--drop">
@@ -58,7 +58,7 @@
           </header>
           <a
             class="github"
-            href="https://github.com/codrops/GradientTopographyAnimation/"
+            href="https://github.com/SoomanChe"
             title="Find this project on GitHub"
           >
             <svg class="icon icon--github">
@@ -66,9 +66,8 @@
             </svg>
           </a>
           <p class="info">
-            Inspired by
-            <a
-              href="https://polarvectors.com/shop/textures/gradient-topography/"
+            Based on
+            <a href="https://github.com/codrops/GradientTopographyAnimation"
               >Gradient Topography</a
             >
           </p>
