@@ -1,6 +1,6 @@
 <template>
   <transition name="intro" appear>
-    <div id="default" :class="intro">
+    <div id="default">
       <svg class="hidden">
         <symbol id="icon-arrow" viewBox="0 0 24 24">
           <title>arrow</title>
@@ -387,18 +387,15 @@ import Blob from '@/utils/blob'
 
 export default {
   data: () => ({
-    showNav: false,
     blobs: {},
     navLinks: [],
     containerInner: [],
     ctrlBack: '',
     prevRoute: '',
   }),
-  computed: {
-    intro() {
-      return { intro: this.$route.path !== '/' }
-    },
-  },
+
+  computed: {},
+
   mounted() {
     Array.from(this.$el.querySelectorAll("[class^='blob']")).forEach((el) => {
       const blob = new Blob(el)
@@ -412,6 +409,7 @@ export default {
       this.showUpNavLink(link, 800, 500)
     })
   },
+
   methods: {
     showUpNavLink(el, durations, delay) {
       anime({
@@ -421,6 +419,7 @@ export default {
         easing: 'easeInOutQuad',
         opacity: [0, 1],
         complete: () => {
+          el.style.pointerEvents = 'auto'
           el.classList.add('menu__item--showDeco')
         },
       })
@@ -435,6 +434,7 @@ export default {
         opacity: 0,
         begin: () =>
           this.navLinks.forEach((link) => {
+            link.style.pointerEvents = 'none'
             link.classList.remove('menu__item--showDeco')
           }),
       })
@@ -458,6 +458,9 @@ export default {
         return
       }
       const currentBlob = this.blobs[path]
+      if (!currentBlob) {
+        return
+      }
 
       currentBlob.expand().then(() => {
         el.style.opacity = 1
@@ -479,7 +482,9 @@ export default {
         .filter((el) => el !== currentBlob.element.getAttribute('data-route'))
         .forEach((blobKey) => this.blobs[blobKey].hide())
 
-      done()
+      if (done) {
+        done()
+      }
     },
 
     leave(el, done) {
@@ -520,7 +525,9 @@ export default {
         .filter((el) => path !== el)
         .forEach((blobKey) => this.blobs[blobKey].show())
 
-      done()
+      if (done) {
+        done()
+      }
     },
   },
 }

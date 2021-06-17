@@ -96,4 +96,9 @@ export default {
       },
     },
   },
+
+  loading: {
+    color: 'white',
+    height: '5px',
+  },
 }
