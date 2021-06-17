@@ -104,6 +104,7 @@
           </nav>
           <svg
             class="scene"
+            :class="triggerAnimation"
             width="1440"
             height="800"
             preserveAspectRatio="xMinYMid slice"
@@ -391,10 +392,23 @@ export default {
     navLinks: [],
     containerInner: [],
     ctrlBack: '',
-    prevRoute: '',
+    prevRoute: null,
+    isSsr: true,
   }),
 
-  computed: {},
+  computed: {
+    triggerAnimation() {
+      const notHome = this.$route.path !== '/'
+      if (this.isSsr && notHome) {
+        this.enter(this.$el)
+        this.navLinks.forEach((link) => {
+          anime.remove(link.querySelectorAll('span'))
+        })
+        this.setPrevRoute(this.$route.path)
+      }
+      return { ssr: this.isSsr }
+    },
+  },
 
   mounted() {
     Array.from(this.$el.querySelectorAll("[class^='blob']")).forEach((el) => {
@@ -440,8 +454,13 @@ export default {
       })
     },
 
+    setPrevRoute(path) {
+      this.prevRoute = path
+    },
+
     route(path) {
       this.prevRoute = path
+      this.isSsr = false
       this.$router.push(path)
     },
 
