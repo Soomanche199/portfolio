@@ -1,0 +1,30 @@
+.fade-left {
+  transition: opacity .8s cubic-bezier(.7, 0, .3, 1), transform .8s cubic-bezier(.7, 0, .3, 1);
+  transform: translate3d(-10%,0,0);
+  opacity: 0;
+  backface-visibility: hidden;
+
+  &.animated {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+.fade-zoom{
+  transform: scale(.9);
+  transition: all .8s cubic-bezier(.7,0,.3,1),transform 1.5s cubic-bezier(.785,.135,.15,.86);
+
+  &.animated{
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}

@@ -1,3 +1,5 @@
+import fontawesome from './configs/fontawesome'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -24,7 +26,7 @@ export default {
         rel: 'icon',
         type: 'image/png',
         sizes: '36x36',
-        href: '/android-icon-36x36',
+        href: '/android-icon-36x36.png',
       },
     ],
   },
@@ -36,7 +38,11 @@ export default {
   plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [
+    '~/components',
+    { path: '~/components/icons/', prefix: 'icons' },
+    { path: '~/components/svg/', prefix: 'svg' },
+  ],
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
@@ -49,23 +55,14 @@ export default {
     'nuxt-vite',
   ],
 
-  fontawesome: {
-    component: 'fa',
-    icons: {
-      // if you have bought the Pro packages
-      // list the icons you want to add, not listed icons will be tree-shaked
-      solid: [],
-      // include all icons. But dont do this.
-      brands: [],
-      regular: [],
-    },
-  },
+  fontawesome,
 
   googleFonts: {
     families: {
       'Open+Sans': [400, 500, 700],
       'Noto+Sans': [400, 500, 700],
       Montserrat: [400, 700, 900],
+      Exo: [400, 500, 700],
     },
   },
 

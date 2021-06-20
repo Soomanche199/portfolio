@@ -1,0 +1,275 @@
+h2 {
+  font-size: 10vw;
+  line-height: 12vw;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  padding-bottom: 30px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 2;
+  margin-bottom: 0;
+  padding-bottom: 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1440px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.intro {
+  padding-top: 120px;
+  padding-bottom: 70px;
+
+  @media (min-width: 992px) {
+    padding-top: 200px;
+  }
+}
+
+.intro__circle {
+  width: 900px;
+  height: 900px;
+  left: -250px;
+  top: -180px;
+  position: absolute;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: rotation 50s linear infinite;
+  color: #f3c583;
+
+  @media (min-width: 401px) {
+    width: 950px;
+    height: 950px;
+    top: -200px;
+    left: -200px;
+  }
+
+  @media (min-width: 576px) {
+    width: 1200px;
+    height: 1200px;
+    top: -300px;
+    left: -200px;
+  }
+
+  @media (min-width: 768px) {
+    width: 1400px;
+    height: 1400px;
+    top: -320px;
+    left: -40px;
+  }
+
+  @media (min-width: 992px) {
+    width: 1700px;
+    height: 1700px;
+    top: -300px;
+    left: -10px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 2000px;
+    height: 2000px;
+    top: -550px;
+  }
+
+  @media (min-width: 1351px) {
+    width: 2500px;
+    height: 2500px;
+    top: -900px;
+    left: 0;
+  }
+
+}
+
+.intro__title {
+  position: relative;
+  margin-bottom: 30px;
+  min-height: 60vw;
+
+  @media (min-width: 768px) {
+    min-height: 50vw;
+    margin-bottom: 50px;
+  }
+  @media (min-width: 1351px) {
+    min-height: 650px;
+  }
+}
+
+.title__circle {
+  width: 60vw;
+  height: 60vw;
+  right: -30vw;
+  top: -25px;
+  position: absolute;
+  background-color: transparent;
+  border: 11vw solid #f3c583;
+  border-radius: 100%;
+  overflow: hidden;
+  z-index: -1;
+
+
+  @media (min-width: 576px) {
+    right: -20vw;
+  }
+
+  @media (min-width: 768px) {
+    width: 50vw;
+    height: 50vw;
+    top: -50px;
+    right: -10vw;
+  }
+
+  @media (min-width: 1351px) {
+    top: -150px;
+    right: 0;
+    width: 810px;
+    height: 810px;
+  }
+}
+
+.title__content{
+  @media (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+
+.title__subtitle-wrapper{
+  display: flex;
+}
+
+.title__subtitle--vertical {
+  display: none;
+  position: relative;
+
+  @media (min-width: 768px) {
+    display: block;
+    width: 8.333333%;
+  }
+
+  & span {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    font-family: Exo, sans-serif;
+    font-size: 18px;
+    letter-spacing: -.02em;
+    line-height: 24px;
+    transform: rotate(-180deg);
+    writing-mode: tb-rl;
+    white-space: nowrap;
+    padding-left: 15px;
+    padding-right: 15px;
+    vertical-align: baseline;
+  }
+}
+
+.title__subtitle--horizon {
+  padding-bottom: 10px;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 24px;
+  font-weight: 500;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.title__title{
+  @media (min-width: 768px) {
+    width: 91.666667%;
+  }
+
+  & h2{
+    @media (min-width: 1351px) {
+      font-size: 160px;
+      line-height: 1;
+    }
+  }
+}
+
+.intro__content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  & p {
+    @media (min-width: 768px) {
+      width: 83.333333%;
+      font-size: 18px;
+    }
+    @media (min-width: 992px) {
+      font-size: 22px;
+      line-height: 42px;
+      width: 75%;
+    }
+    @media (min-width: 1351px) {
+      width: 58.333333%;
+      font-size: 26px;
+      line-height: 48px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.who {
+  padding-top: 80px;
+  padding-bottom: 50px;
+}
+
+.who__title {
+  padding-bottom: 30px;
+}
+
+.skills{
+  background-color: #f3c583;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.skills__title{
+  color: #ef8e7c;
+}
+
+.skills__content{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.skills__item{
+  padding: 0 15px;
+  flex: 0 0 50%;
+  max-width: 50%;
+  min-height: 150px;
+  transition: background .5s ease,box-shadow .5s ease;
+  color: #7F87B2;
+
+  &:hover{
+    background-color: #ef8e7c;
+    box-shadow: 13px 23px 57px 3px rgba(0,0, 0, .3);
+
+  }
+}
+
+.skills .svg-inline--fa{
+  width: 100%;
+  height: 100%;
+}
+
+.experience{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
