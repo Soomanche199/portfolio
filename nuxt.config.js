@@ -95,7 +95,7 @@ export default {
   },
 
   loading: {
-    color: 'white',
+    color: '#67cd75',
     height: '5px',
   },
 }

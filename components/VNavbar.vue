@@ -36,6 +36,7 @@ export default {
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
+
   @media (min-width: 992px) {
     width: 90px;
   }
@@ -134,7 +135,7 @@ export default {
   width: calc(100% - 50px);
   position: absolute;
   top: 0;
-  left: 90px;
+  left: 50px;
   overflow: hidden;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 0.3);
@@ -144,6 +145,7 @@ export default {
   text-transform: uppercase;
 
   @media (min-width: 992px) {
+    left: 90px;
     backdrop-filter: none;
     background-color: transparent;
     padding: 30px;
