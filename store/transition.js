@@ -23,9 +23,9 @@ export const mutations = {
       easing: 'easeInOutQuad',
       opacity: 0,
       begin: () =>
-        state.navLinks.forEach((link) => {
+        state.navLinks.forEach((link) =>
           link.classList.remove('menu__item--showDeco')
-        }),
+        ),
     })
   },
 

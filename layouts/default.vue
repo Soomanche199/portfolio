@@ -3,6 +3,37 @@
     <main id="default" class="ready">
       <svg-the-blob />
       <!-- 실제 컨첸츠 -->
+      <div class="menu-wrapper">
+        <nav class="menu">
+          <a href="#" class="menu__item" @click.prevent="changeRoute('/about')"
+            >about</a
+          >
+          <a
+            href="#"
+            class="menu__item"
+            @click.prevent="changeRoute('/articles')"
+            >articles</a
+          >
+          <a
+            href="#"
+            class="menu__item"
+            @click.prevent="changeRoute('/portfolio')"
+            >portfolio</a
+          >
+          <a
+            href="#"
+            class="menu__item"
+            @click.prevent="changeRoute('/contact')"
+            >contact</a
+          >
+          <a href="#" class="menu__item" @click.prevent="changeRoute('/dummy1')"
+            >contact</a
+          >
+          <a href="#" class="menu__item" @click.prevent="changeRoute('/dummy2')"
+            >contact</a
+          >
+        </nav>
+      </div>
       <Nuxt />
     </main>
   </transition>
@@ -13,18 +44,10 @@
 </style>
 
 <script>
-import { mapMutations } from 'vuex'
+import { createNamespacedHelpers } from 'vuex'
+const { mapActions, mapMutations } = createNamespacedHelpers('transition')
 
 export default {
-  data: () => ({
-    blobs: {},
-    navLinks: [],
-    containerInner: [],
-    ctrlBack: '',
-    prevRoute: null,
-    isSsr: true,
-  }),
-
   computed: {
     // triggerAnimation() {
     //   const notHome = this.$route.path !== '/'
@@ -39,8 +62,19 @@ export default {
     // },
   },
 
+  mounted() {
+    const navLinks = Array.from(this.$el.querySelectorAll('.menu__item'))
+    if (this.$store.state.transition.isServer) {
+      this.$store.dispatch('transition/initNavLinks', navLinks)
+      return
+    }
+
+    this.$store.commit('transition/initNavLinks', navLinks)
+  },
+
   methods: {
-    ...mapMutations('transition', ['leaveNavLinks']),
+    ...mapMutations(['leaveNavLinks']),
+    ...mapActions(['changeRoute', 'blobActive']),
 
     intro() {
       this.$el.classList.remove('ready')
